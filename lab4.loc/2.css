@@ -1,0 +1,208 @@
+
+#c11 /*правила для рамки и фона ячейки строки 1 и столбца 1*/
+{
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+    text-align: right;  
+}
+
+#c121 { /*правила для рамки и фона ячейки строки 1 и столбца 2(подъячейка 1)*/
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+
+}
+
+#c122 { /*правила для рамки и фона ячейки строки 1 и столбца 2(подъячейка 2)*/
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+
+}
+
+#c13 { /*правила для рамки и фона ячейки строки 1 и столбца 3*/
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+}
+
+#c21 { /*правила для рамки и фона ячейки строки 2 и стобца 1*/
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+}
+
+#c221 { /*правила для рамки и фона ячейки строки 2 и столбца 2(подъячейка 1)*/
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+}
+
+#c222 { /*правила для рамки и фона ячейки строки 2 и столбца 2(подъячейка 2)*/
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+}
+
+#c23 { /*правила для рамки и фона ячейки строки 1 и столбца 2(подъячейка 1)*/
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+}
+
+#c30 { /*правила для рамки и фона ячейки строки 3*/
+    border: 1px solid white;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #f3c8cd 0%, #bfe9ff  51%, #f3c8cd  100%);
+    text-align: center;
+}
+
+/*шрифты всех текстов*/
+h1, table td, table input,select{
+    font: 20px "Montserrat", sans-serif;
+    color: rgb(54, 54, 54);
+}
+
+/*стилизация заголовка*/
+h1 {
+    color: #2b7385;
+    text-align: center;
+    font-size: 50px;
+}
+
+
+/*стилизация чекбоксов и радио*/
+input[type=checkbox],
+input[type=radio] {
+    margin: 8px;
+    transform: scale(1.6);
+    cursor: pointer;
+}
+
+/*стили для всех инпутов и селекта*/
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=date],
+input[type=submit],
+input[type=reset],
+input[type=button],
+#flabel,
+select {
+    width: 200px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid white;
+    color: rgb(54, 54, 54);
+    border-radius:5px;
+    background-image: linear-gradient(to right, #E6DADA 0%, #89cddf  51%, #E6DADA  100%);  
+}
+
+select {
+    cursor: pointer;
+}
+
+select:hover {
+    color:black;
+    border: 1px solid black;
+}
+
+/*без советских рамок при фокусе*/
+input:focus, select:focus{
+    outline: none;
+}
+
+/*стилизация кнопок*/
+input[type=submit],
+input[type=reset],
+input[type=button] {
+    border-color:rgb(161, 161, 161);
+    cursor: pointer;
+}
+
+/*стилизация кнопок при наведении*/
+input[type=submit]:hover,
+input[type=reset]:hover,
+input[type=button]:hover {
+    border-color: black;
+    cursor: pointer;
+    color: black;
+}
+
+/*стилизация самой таблицы*/
+table {
+    border-spacing: 15px;
+    background-image: linear-gradient(to right, #7dc2d3 0%, #E6DADA 51%, #7dc2d3  100%);
+    border: 1px solid rgb(154, 181, 255);
+    border-radius: 5px;
+    padding:20px;
+}
+
+input[type=range] { /*стилизация range*/
+    margin-top: 15px;
+    width: 85%;
+}
+
+/*отступы внутри ячеек*/
+table td {
+    padding: 20px;
+}
+
+
+/*расположение таблицы и заголовка по центру*/
+table {
+    width: 100%;
+}
+
+h1, form {
+    margin: 50px 0;
+}
+/**/
+
+label {
+    font-weight: 600;
+}
+
+/*Стилизация файлового инпута*/
+#flabel input {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+#flabel {
+    display: block;
+    text-align: center;
+}
+
+#flabel:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+}
+
+.container {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+#info table {
+    border-spacing: 0;
+    margin-top: 50px;
+}
+
+#info table td, #info table th {
+    font: 15px "Montserrat", sans-serif;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+#info table td {
+    white-space: nowrap;
+}
+
+#info table th {
+    font-weight: bold;
+}
