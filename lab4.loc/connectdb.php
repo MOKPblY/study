@@ -2,33 +2,24 @@
 
 require_once('constants.php');
 
-$host = "localhost";
-$user = "root";
-$mypass = "123";
-$mysql = mysqli_connect($host, $user, $mypass);
+const HOST = "localhost";
+const USER = "root";
+const PASS = "123";
+const DB_NAME = "entrantsdb";
 
-$mydbname = "entrantsdb";
+function connectDB($host, $user, $mypass)
+{
+    return mysqli_connect($host, $user, $mypass);
+}
 
-if (G) {
-   
-    if ($mysql) {
-        mysqli_set_charset($mysql, 'utf8mb4');
+function  createDatabase($mysql, $tableName)
+{
+    return mysqli_query($mysql, "CREATE DATABASE IF NOT EXISTS " . $tableName);
+}
 
-
-        $sqlcreatecustomdb = "CREATE DATABASE IF NOT EXISTS ".$mydbname;
-        
-        if(!mysqli_query($mysql, $sqlcreatecustomdb)) {
-            echo "Ошибка при запросе создания базы: " . mysqli_error($mysql);
-        } else {
-            mysqli_close($mysql);
-        
-            $mydb = mysqli_connect($host, $user, $mypass, $mydbname);
-                        
-            if ($mydb) {
-            
-                mysqli_set_charset($mydb, 'utf8mb4');
-
-                $fields = "(
+function  createTable($mysql)
+{
+    $fields = "(
                     id          int     not null    primary key    auto_increment,
                     surname     nvarchar(12),
                     name        nvarchar(12),
@@ -58,21 +49,21 @@ if (G) {
                     dorm        bit default 0 
                 )";
 
-                $sqlcreatetable = "CREATE TABLE IF NOT EXISTS entrants $fields";
-                if(!mysqli_query($mydb, $sqlcreatetable)) echo "Ошибка запроса создания таблицы";
-
-            }
-            else {
-                die("Не удалось подключиться к кастомной базе");
-            }
- 
-        } 
-    } else die("Не удалось подключиться к mysql"); ////
-
-} else if (P) {
-    $mydb = mysqli_connect($host, $user, $mypass, $mydbname);
+    return mysqli_query($mysql, "CREATE TABLE IF NOT EXISTS entrants $fields");
 }
-    
 
 
-?>
+$mysql = connectDB(HOST, USER, PASS);
+if (!$mysql) {
+    die("Не удалось подключиться к mysql");
+}
+
+if (!createDatabase($mysql, DB_NAME)) {
+    mysqli_close($mysql);
+    die("Ошибка при запросе создания базы: " . mysqli_error($mysql));
+}
+
+if (!createTable($mysql)) {
+    mysqli_close($mysql);
+    die("Ошибка запроса создания таблицы: " . mysqli_error($mysql));
+}
