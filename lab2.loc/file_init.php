@@ -2,8 +2,6 @@
 
 require('constants.php');
 
-$delimeter = "; ";
-
 if (G and !file_exists(FNAME)){
     $headers = [
         'Номер записи',

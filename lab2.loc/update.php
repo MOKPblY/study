@@ -13,14 +13,13 @@
                 }
             }
             
-            $new_str = implode($delimeter, $values);
+            $new_str = implode($delimeter, $values)."; \n";
 
             $strs[$_POST['id']] = $new_str;
             $f=fopen(FNAME, "w+");
             foreach($strs as $str) { 
                 fwrite($f, $str); 
             }
-            fwrite($f, "\n");
             fclose($f);
 
  

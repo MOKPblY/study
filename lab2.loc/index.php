@@ -4,8 +4,10 @@
 
     require('file_init.php');
     $edit = false;
+    $f = file(FNAME);
+    
     if(isset($_GET['id'])){
-        $f = file(FNAME);
+
         $values = explode($delimeter, $f[$_GET['id']]);
         $edit = true;
 
@@ -95,7 +97,7 @@
                                     if ($edit) {
                                         $value = $data['id'];    
                                     } else {
-                                        $value = count(file(FNAME));
+                                        $value = count($f);
                                     }
                                     
                                     $extra = " readonly ";
@@ -122,7 +124,7 @@
                         <input type="date" name = "grad_date" value = "<?php if ($edit) { echo $data['grad_date']; } 
                         else { echo "2021-07-31"; }; ?>" max = "19.09.2022" required><br>
                         <label for="tel">Телефон:</label>
-                        <input type="tel" name="tel" placeholder = "+7-XXX-XXX-XXXX" pattern="\+7(-)?(49|92)\d(-)?\d{3}(-)?\d{4}" maxlength = "15" value = "<?php if ($edit) { echo $data['tel']; };?>"><br>
+                        <input type="tel" name="tel" placeholder = "+7-XXX-XXX-XXXX" pattern="\(+7|8)(-)?(49|92)\d(-)?\d{3}(-)?\d{4}" maxlength = "15" value = "<?php if ($edit) { echo $data['tel']; };?>"><br>
                         <label for="email">E-mail:</label>
                         <input type="email" name="email" placeholder = "vasyapupkin@dom.ru" pattern="[a-z][0-9a-z_]{2,14}@[a-z]{2,10}\.[a-z]{2,3}" maxlength = "30" value = "<?php if ($edit) { echo $data['email']; }; ?>" required>
                     </td>   
@@ -190,7 +192,7 @@
                 <tr>
                     <td rowspan="2" id = "c21">
                         <label for="file">Загрузить аттестат:<br></label>
-                        <label id="flabel">Выберите файл<input type="file" name = "file"></label>
+                        <label id="flabel">Выберите файл<input type="file" name = "file" required></label>
                         
                     </td>
                     <td id = "c221">

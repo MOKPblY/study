@@ -3,24 +3,44 @@
     require('constants.php');
 
     if(P and isset($_POST['number'])) {
+        
+        $num = $_POST['number'];
+        $strs = file(FNAME);
 
-        if(isset($_POST['drop'])) {
+        if ($num < count($strs) and $num > 0) {
 
-            $strs = file(FNAME);
-            unset($strs[$_POST['number']]);
-            $f=fopen(FNAME, "w+");
-            foreach($strs as $str) { 
-                fwrite($f, $str); 
-            }
-            fclose($f);
 
-        } else if(isset($_POST['update'])) {
+            if(isset($_POST['drop'])) {
 
-            $f = file(FNAME);
-            $num = $_POST['number'];
-            if ($num < count($f) and $num > 0) {
+                $found = false;
+                foreach($strs as $i => $str) {
+                    $str = explode($delimeter, $str);
+                    if (!$found) {
+                        print_r($str);
+                        if ($str[0]==$_POST['number']) {
+                            unset($strs[$i]);
+                            $found = true;
+                            continue;
+                        }
+                    } else {
+                        $str[0] -= 1;
+                    }
+                    $strs[$i] = implode($delimeter, $str);
+                }
+                
+
+                $f=fopen(FNAME, "w+");
+                foreach($strs as $str) { 
+                    fwrite($f, $str); 
+                }
+                fclose($f);
+
+            } else if(isset($_POST['update'])) {
+
                 $strnum = "?id=$num";
-            }
+
+            };
+
         };
 
         $loc = "Location: /";

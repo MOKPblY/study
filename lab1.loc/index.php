@@ -120,7 +120,7 @@
                 <tr>
                     <td rowspan="2" id = "c21">
                         <label for="file">Загрузить аттестат:<br></label>
-                        <label id="flabel">Выберите файл<input type="file" name = "file"></label>
+                        <label id="flabel">Выберите файл<input type="file" name = "file" required></label>
                         
                     </td>
                     <td id = "c221">
